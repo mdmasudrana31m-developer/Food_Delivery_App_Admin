@@ -16,8 +16,8 @@ const Login = ({ setToken }) => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:8000/api/user/admin",
-        { email, password }
+        "https://food-delivery-app-server-six.vercel.app/api/user/admin",
+        { email, password },
       );
 
       if (response.data.token) {

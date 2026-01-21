@@ -9,7 +9,7 @@ const AdminMessages = () => {
 
   const fetchMessages = async () => {
     try {
-      const res = await axios.get("http://localhost:8000/api/messages/all", {
+      const res = await axios.get("https://food-delivery-app-server-six.vercel.app/api/messages/all", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setMessages(res.data);
@@ -37,7 +37,7 @@ const AdminMessages = () => {
   const sendReply = async (id) => {
     try {
       await axios.put(
-        `http://localhost:8000/api/messages/reply/${id}`,
+        `hhttps://food-delivery-app-server-six.vercel.app/api/messages/reply/${id}`,
         { reply },
         { headers: { Authorization: `Bearer ${token}` } }
       );
