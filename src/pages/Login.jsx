@@ -1,11 +1,9 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { FaEye, FaEyeSlash, FaLock, FaUser } from "react-icons/fa";
-import {
-  iconClass,
-  inputBase,
-} from "../../../client/src/assets/assets/dummydata";
+
 import { toast } from "react-toastify";
+import { iconClass, inputBase } from "../assets/dummy";
 
 const Login = ({ setToken }) => {
   const [showPassword, setShowPassword] = useState(false);
