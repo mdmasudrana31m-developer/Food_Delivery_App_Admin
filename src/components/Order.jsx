@@ -26,7 +26,7 @@ const Order = () => {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
             },
-          }
+          },
         );
 
         const formatted = response.data.map((order) => ({
@@ -91,11 +91,13 @@ const Order = () => {
         { status: newStatus },
         {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
-        }
+        },
       );
 
       setOrders(
-        orders.map((o) => (o._id === orderId ? { ...o, status: newStatus } : o))
+        orders.map((o) =>
+          o._id === orderId ? { ...o, status: newStatus } : o,
+        ),
       );
     } catch (err) {
       alert(err.response?.data?.message || "Failed to update order status");
@@ -153,7 +155,7 @@ const Order = () => {
                 {orders.map((order) => {
                   const totalItems = order.items.reduce(
                     (s, i) => s + i.quantity,
-                    0
+                    0,
                   );
                   const totalPrice =
                     order.total ??
@@ -162,7 +164,7 @@ const Order = () => {
                         s +
                         (Number(i.item?.price) || 0) *
                           (Number(i.quantity) || 0),
-                      0
+                      0,
                     );
 
                   const payMethod =
