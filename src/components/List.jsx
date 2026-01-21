@@ -10,7 +10,9 @@ const List = () => {
   useEffect(() => {
     const fetchItems = async () => {
       try {
-        const { data } = await axios.get("https://food-delivery-app-server-six.vercel.app/api/item");
+        const { data } = await axios.get(
+          "https://food-delivery-app-server-six.vercel.app/api/item",
+        );
         setItems(data);
       } catch (err) {
         console.error("Error fetching Items:", err);
@@ -25,7 +27,9 @@ const List = () => {
     if (!window.confirm("Are you sure you want to delete this item:")) return;
 
     try {
-      await axios.delete(`https://food-delivery-app-server-six.vercel.app/api/item/${itemId}`);
+      await axios.delete(
+        `https://food-delivery-app-server-six.vercel.app/api/item/${itemId}`,
+      );
       setItems((prev) => prev.filter((item) => item._id !== itemId));
       console.log("Delete item ID", itemId);
     } catch (err) {
@@ -62,7 +66,7 @@ const List = () => {
           <div className={styles.tableWrapper}>
             <table className={styles.table}>
               <thead className={styles.thead}>
-                <tr >
+                <tr>
                   <th className={styles.th}>Image</th>
                   <th className={styles.th}>Name</th>
                   <th className={styles.th}>Category</th>
