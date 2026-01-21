@@ -10,7 +10,7 @@ const List = () => {
   useEffect(() => {
     const fetchItems = async () => {
       try {
-        const { data } = await axios.get("http://localhost:8000/api/item");
+        const { data } = await axios.get("https://food-delivery-app-server-six.vercel.app/api/item");
         setItems(data);
       } catch (err) {
         console.error("Error fetching Items:", err);
@@ -25,7 +25,7 @@ const List = () => {
     if (!window.confirm("Are you sure you want to delete this item:")) return;
 
     try {
-      await axios.delete(`http://localhost:8000/api/item/${itemId}`);
+      await axios.delete(`https://food-delivery-app-server-six.vercel.app/api/item/${itemId}`);
       setItems((prev) => prev.filter((item) => item._id !== itemId));
       console.log("Delete item ID", itemId);
     } catch (err) {

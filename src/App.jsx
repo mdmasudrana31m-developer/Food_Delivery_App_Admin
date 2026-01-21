@@ -11,7 +11,7 @@ import AdminMessages from "./pages/AdminMessages";
 
 const App = () => {
   const [token, setToken] = useState(
-    localStorage.getItem("token") ? localStorage.getItem("token") : ""
+    localStorage.getItem("token") ? localStorage.getItem("token") : "",
   );
 
   useEffect(() => {
@@ -21,7 +21,7 @@ const App = () => {
   // real-time socket for admin: listen for new messages and dispatch event
   useEffect(() => {
     if (!token) return;
-    const socket = ioClient("http://localhost:8000");
+    const socket = ioClient("https://food-delivery-app-server-six.vercel.app");
     socket.emit("register", { admin: true });
     socket.on("newMessage", (msg) => {
       try {

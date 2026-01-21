@@ -21,7 +21,7 @@ const Order = () => {
     const fetchOrders = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:8000/api/orders/getall",
+          "https://food-delivery-app-server-six.vercel.app/api/orders/getall",
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -87,7 +87,7 @@ const Order = () => {
   const handleStatusChange = async (orderId, newStatus) => {
     try {
       await axios.put(
-        `http://localhost:8000/api/orders/getall/${orderId}`,
+        `https://food-delivery-app-server-six.vercel.app/api/orders/getall/${orderId}`,
         { status: newStatus },
         {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
@@ -221,7 +221,7 @@ const Order = () => {
                           {order.items.map((itm, idx) => {
                             const product = itm?.item || itm || {};
                             const imageSrc = product?.imageUrl
-                              ? `http://localhost:8000${product.imageUrl}`
+                              ? `https://food-delivery-app-server-six.vercel.app${product.imageUrl}`
                               : "/placeholder.svg";
                             const name = product?.name || "Unknown product";
                             return (

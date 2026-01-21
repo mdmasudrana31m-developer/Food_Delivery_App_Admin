@@ -37,7 +37,7 @@ const AdminMessages = () => {
   const sendReply = async (id) => {
     try {
       await axios.put(
-        `hhttps://food-delivery-app-server-six.vercel.app/api/messages/reply/${id}`,
+        `https://food-delivery-app-server-six.vercel.app/api/messages/reply/${id}`,
         { reply },
         { headers: { Authorization: `Bearer ${token}` } }
       );

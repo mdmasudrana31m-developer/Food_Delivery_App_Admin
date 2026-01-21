@@ -39,7 +39,10 @@ const AddItems = () => {
         payload.append(key, val);
       });
 
-      const res = await axios.post("http://localhost:8000/api/item", payload);
+      const res = await axios.post(
+        "https://food-delivery-app-server-six.vercel.app/api/item",
+        payload,
+      );
 
       setFormData({
         name: "",
@@ -97,7 +100,7 @@ const AddItems = () => {
                   />
                 ) : (
                   <div className="text-center p-4">
-                    <FiUpload className='text-5xl  mx-auto text-amber-400' />
+                    <FiUpload className="text-5xl  mx-auto text-amber-400" />
                     <p className={styles.uploadText}>
                       Click to upload product image
                     </p>
@@ -173,14 +176,14 @@ const AddItems = () => {
                     Price (<FaBangladeshiTakaSign size={15} />)
                   </label>
                   <div className={styles.relativeInput}>
-                   
-
                     <input
                       type="number"
                       name="price"
                       value={formData.price}
                       onChange={handleInputChange}
-                      className={styles.inputField + "pl-10 sm:pl-12  text-amber-200"}
+                      className={
+                        styles.inputField + "pl-10 sm:pl-12  text-amber-200"
+                      }
                       placeholder="Enter Price"
                       min="0"
                       step="0.01"
@@ -229,7 +232,7 @@ const AddItems = () => {
                       onClick={handleHeart}
                       className="text-2xl sm:text-3xl text-shadow-lime-400 hover:text-amber-300 transition-colors animate-pulse"
                     >
-                      <FiHeart className="text-red-600"/>
+                      <FiHeart className="text-red-600" />
                     </button>
 
                     <input
@@ -237,7 +240,9 @@ const AddItems = () => {
                       name="hearts"
                       value={formData.hearts}
                       onChange={handleInputChange}
-                      className={styles.inputField + "pl-10 sm:pl-12  text-amber-200"}
+                      className={
+                        styles.inputField + "pl-10 sm:pl-12  text-amber-200"
+                      }
                       placeholder="Enter Likes"
                       min="0"
                       required

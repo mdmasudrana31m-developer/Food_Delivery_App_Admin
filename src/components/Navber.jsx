@@ -15,7 +15,7 @@ const Navber = ({ token, setToken }) => {
     const fetchUnread = async () => {
       try {
         if (!token) return;
-        const res = await axios.get("http://localhost:8000/api/messages/all", {
+        const res = await axios.get("https://food-delivery-app-server-six.vercel.app/api/messages/all", {
           headers: { Authorization: `Bearer ${token}` },
         });
         if (!mounted) return;
